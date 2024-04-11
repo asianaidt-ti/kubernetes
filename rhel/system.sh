@@ -1,10 +1,10 @@
 #!/bin/sh
-yum check-update
 
-# recommend
-# net-tools: ifconfig
-# bind-utils: nslookup
-yum install git wget net-tools telnet bind-utils bash-completion -y
+# recommend: git wget net-tools telnet bind-utils bash-completion
+#  |- net-tools: ifconfig
+#  |- bind-utils: nslookup
+# optional: vim tree
 
-# optional
-yum install vim tree -y
+dnf check-update
+dnf install git wget net-tools telnet bind-utils bash-completion -y
+dnf install vim tree -y
