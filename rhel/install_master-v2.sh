@@ -30,6 +30,9 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward                 = 1
 EOF
 
+# Apply sysctl params without reboot
+sudo sysctl --system
+
 ### kubeadm
 # disable linux swap and remove any existing swap partitions
 swapoff -a
