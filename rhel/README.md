@@ -1,16 +1,22 @@
 # 설치 순서
 
-### 1. system.sh
-OS 패키지들 모음
+## 1. 싱글 마스터 클러스터
 
-### 2. docker.sh | containerd.sh
-컨테이너 런타임 
+### 1.1 모든 노드
 
-### 3. container-runtimes.sh
-k8s설치를 위한 컨테이너 런타임 설정
+```
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/01-system.sh)
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/02-containerd.sh)
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/03-container-runtimes.sh)
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/04-kubeadm.sh)
+```
 
-### 4. kubeadm.sh
-kubeadm설치 및 관련 설정
+### 1.2 마스터 노드
 
-### 5. master.sh
-싱글 마스터 노드 설치를 위한 명령어 샘플
+```
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/05-master-only.sh)
+```
+
+### 1.3 워커 노드
+
+1.2 실행 결과를 참조하여 클러스터에 Join.
