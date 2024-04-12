@@ -6,6 +6,6 @@ sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/dock
 sudo dnf -y install containerd.io
 
 containerd config default > /etc/containerd/config.toml
-sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' config.toml
+sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
 
 sudo systemctl enable --now containerd
