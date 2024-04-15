@@ -5,6 +5,7 @@
 ### 1.1 모든 노드
 
 ```
+sudo -i
 bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/01-system.sh)
 bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/02-containerd.sh)
 bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/03-container-runtimes.sh)

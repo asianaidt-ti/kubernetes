@@ -2,6 +2,10 @@
 
 # Source: https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 
+# disable linux swap and remove any existing swap partitions
+swapoff -a
+sed -i '/\sswap\s/ s/^\(.*\)$/#\1/g' /etc/fstab
+
 # Set SELinux in permissive mode (effectively disabling it)
 sudo setenforce 0
 sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
