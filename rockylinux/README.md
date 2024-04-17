@@ -8,16 +8,16 @@
 sudo -i
 ```
 ```
-bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/01-system.sh)
-bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/02-containerd.sh)
-bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/03-container-runtimes.sh)
-bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/04-kubeadm.sh)
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/01-system.sh)
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/02-containerd.sh)
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/03-container-runtimes.sh)
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/04-kubeadm.sh)
 ```
 
 ### 1.2 마스터 노드
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rhel/05-master-only.sh)
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/05-master-only.sh)
 ```
 
 ### 1.3 워커 노드
