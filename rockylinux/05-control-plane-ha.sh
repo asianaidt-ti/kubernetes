@@ -12,7 +12,7 @@ complete -o default -F __start_kubectl k
 EOF
 source ~/.bashrc
 
-kubeadm init --control-plane-endpoint control-plane-endpoint.cnct.asianaidt.com:6443 --upload-certs --pod-network-cidr 192.168.0.0/16
+sudo kubeadm init --control-plane-endpoint control-plane-endpoint.cnct.asianaidt.com:6443 --upload-certs --pod-network-cidr 192.168.0.0/16
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
