@@ -11,15 +11,17 @@ bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/ro
 bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/04-kubeadm.sh)
 ```
 
-### 1.2 마스터 노드
+### 1.2 컨트롤 플레인 노드
 
 ```
 bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/05-master-only.sh)
 ```
 
-### 1.3 워커 노드
+### 1.3 노드 추가
 
-마스터 노드에서 다음 명령어를 실행한다. 
+### 1.3.1 워커 노드 추가
+
+컨트롤 플레인 노드에서 다음 명령어를 실행한다. 
 ```
 kubeadm token create --print-join-command
 ```
@@ -30,3 +32,36 @@ kubeadm join 172.31.14.230:6443 --token 1jqhol.h4bmkvd1uvkoirt5 --discovery-toke
 ```
 
 출력 된 명령어를 각 워커 노드에서 실행하여 워커노드 초기화 및 클러스터 추가 작업이 진행된다.
+
+### 1.3.2 컨트롤 플레인 노드 추가(HA 구성 시)
+
+컨트롤 플레인 노드에서 다음 명령어를 실행한다. 
+
+명령어1:
+```
+kubeadm token create --print-join-command
+```
+명령어2:
+```
+kubeadm init phase upload-certs --upload-certs
+```
+
+출력 예시1:
+```
+# kubeadm token create --print-join-command
+kubeadm join control-plane-endpoint.cnct.asianaidt.com:6443 --token gskkzg.auojewydjmufo5w1 --discovery-token-ca-cert-hash sha256:fd7b5be47bb176f19d769881ec8d93dddd193fb10513768814cc13dd41527019
+```
+출력 예시2:
+```
+kubeadm init phase upload-certs --upload-certs
+I0418 03:52:44.628860    9899 version.go:256] remote version is much newer: v1.30.0; falling back to: stable-1.29
+[upload-certs] Storing the certificates in Secret "kubeadm-certs" in the "kube-system" Namespace
+[upload-certs] Using certificate key:
+c6d7601ab1a1bb149201371fc3041a7d42766d93264aa3bb04521824d290fc19
+```
+
+$(명령어1 결과) --control-plane --certificate-key $(명령어2 결과 certificate key)
+예시:
+```
+kubeadm join control-plane-endpoint.cnct.asianaidt.com:6443 --token gskkzg.auojewydjmufo5w1 --discovery-token-ca-cert-hash sha256:fd7b5be47bb176f19d769881ec8d93dddd193fb10513768814cc13dd41527019 --control-plane --certificate-key c6d7601ab1a1bb149201371fc3041a7d42766d93264aa3bb04521824d290fc19
+```
