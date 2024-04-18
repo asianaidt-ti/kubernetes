@@ -64,7 +64,7 @@ kubeadm join control-plane-endpoint.cnct.asianaidt.com:6443 --token gskkzg.auoje
 ```
 출력 예시2:
 ```
-kubeadm init phase upload-certs --upload-certs
+# kubeadm init phase upload-certs --upload-certs
 I0418 03:52:44.628860    9899 version.go:256] remote version is much newer: v1.30.0; falling back to: stable-1.29
 [upload-certs] Storing the certificates in Secret "kubeadm-certs" in the "kube-system" Namespace
 [upload-certs] Using certificate key:
