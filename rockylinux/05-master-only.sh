@@ -9,6 +9,7 @@ source <(kubectl completion bash)
 alias k=kubectl
 complete -o default -F __start_kubectl k
 EOF
+source ~/.bashrc
 
 # kubeadm init --apiserver-advertise-address 192.168.56.11 --pod-network-cidr 10.244.0.0/16
 sudo kubeadm init --pod-network-cidr 192.168.0.0/16
