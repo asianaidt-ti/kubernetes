@@ -22,4 +22,14 @@ bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/ro
 
 ### 1.3 워커 노드
 
-1.2 실행 결과를 참조하여 클러스터에 Join.
+마스터 노드에서 다음 명령어를 실행한다. 
+```
+kubeadm token create --print-join-command
+```
+
+출력 예시:
+```
+kubeadm join 172.31.14.230:6443 --token 1jqhol.h4bmkvd1uvkoirt5 --discovery-token-ca-cert-hash sha256:367fed174c2ca71700fd8a56e61034746df7463725e3e912be34b28b68bb82b6
+```
+
+출력 된 명령어를 각 워커 노드에서 실행하여 워커노드를 초기화 하고 클러스터에 추가된다.
