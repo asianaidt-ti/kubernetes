@@ -11,10 +11,21 @@ bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/ro
 bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/04-kubeadm.sh)
 ```
 
-### 1.2 컨트롤 플레인 노드
+### 1.2.1 컨트롤 플레인 노드
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/05-master-only.sh)
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/05-control-plane.sh)
+```
+
+### 1.2.2 컨트롤 플레인 노드(HA)구성
+
+주의: control-plane-endpoint.cnct.asianaidt.com 도메인에 대한 설정이 필요함(NLB 주소)
+- 각 노드의 hosts파일에 미리 추가 
+- NLB DNS 이름 그대로 사용
+- DNS등록이 가능한 경우 CNAME레코드로 등록 또는 A레코드로 주소 등록
+
+```
+bash <(curl -s https://raw.githubusercontent.com/asianaidt-ti/kubernetes/main/rockylinux/05-control-plane-ha.sh)
 ```
 
 ### 1.3 노드 추가
