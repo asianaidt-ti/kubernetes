@@ -13,7 +13,7 @@ EOF
 source ~/.bashrc
 
 #sudo kubeadm init --control-plane-endpoint control-plane-endpoint.cnct.asianaidt.com:6443 --upload-certs --pod-network-cidr 192.168.0.0/16
-sudo kubeadm init --control-plane-endpoint cnct-k8s-master-nlb-3446f16ff3ea651b.elb.ap-northeast-2.amazonaws.com:6443 --upload-certs --pod-network-cidr 192.168.0.0/16
+sudo kubeadm init --control-plane-endpoint control-plane-endpoint-07f1ffd6b81cd612.elb.ap-northeast-2.amazonaws.com:6443 --upload-certs --pod-network-cidr 192.168.0.0/16
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
